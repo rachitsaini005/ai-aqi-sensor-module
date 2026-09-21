@@ -4,9 +4,9 @@ Cost-effective environmental monitoring using **virtual sensing** on an ESP8266,
 
 Project for *Embedded System & IoT (UEE511)*, Department of Electrical & Instrumentation Engineering, Thapar Institute of Engineering & Technology, Patiala (July–December 2025).
 
-The full project report is in [`docs/AQI_Sensor_Module_Project_Report.docx`](docs/AQI_Sensor_Module_Project_Report.docx).
+The full project report is in [`AQI_Sensor_Module_Project_Report.pdf`](./AQI_Sensor_Module_Project_Report.pdf).
 
-![System architecture](docs/images/system-architecture.png)
+![System architecture](images/system-architecture.png)
 
 ## Idea
 
@@ -24,7 +24,7 @@ An **ESP8266 NodeMCU** reads the sensors, drives local LED/buzzer alerts (no Wi-
 2. The firmware sends one CSV line per cycle: `Temp,Hum,PM25,PM10,CO,NO2,SO2,O3` at 9600 baud.
 3. **Host app** (`host/`) trains a `RandomForestRegressor` (100 trees) on `AQI_Prediction_IoT_50.csv`, predicts the AQI for each incoming line, labels it (Good ≤ 50, Moderate ≤ 100, otherwise Unhealthy) and appends it to `aqi_history.csv`.
 
-![Firmware flowchart](docs/images/firmware-flowchart.png)
+![Firmware flowchart](images/firmware-flowchart.png)
 
 > **Note on the model inputs:** only temperature and humidity are measured directly. The other six inputs (PM2.5, PM10, CO, NO₂, SO₂, O₃) are estimated in firmware from the MQ-135 reading, so predictions are indicative and not reference-grade. Calibrating against a reference monitor is listed as future work in the report.
 
@@ -49,7 +49,7 @@ An **ESP8266 NodeMCU** reads the sensors, drives local LED/buzzer alerts (no Wi-
 
 The whole module runs from a single 5 V USB supply; the NodeMCU regulates 3.3 V on board.
 
-The wiring diagram is in [`docs/images/wiring-diagram.png`](docs/images/wiring-diagram.png). Note that it was drawn with a DHT22 and an ESP32-style board symbol; the built prototype uses a NodeMCU ESP8266 and a DHT11.
+The wiring diagram is in [`docs/images/wiring-diagram.png`](images/wiring-diagram.png). Note that it was drawn with a DHT22 and an ESP32-style board symbol; the built prototype uses a NodeMCU ESP8266 and a DHT11.
 
 ## Getting started
 
@@ -78,20 +78,9 @@ python aqi_host.py
 
 Example output:
 
-![Host console output](docs/images/host-console-output.png)
+![Host console output](images/host-console-output.png)
 
 ## Blynk / cloud alerts
 
 The report describes push notifications through the Blynk IoT platform (`BlynkSimpleEsp8266`, `Blynk.virtualWrite(V1, aqi_value)` and `Blynk.logEvent("gas_alert")`). The firmware in this repository covers the local alerts and serial streaming only; the Blynk integration is not included here yet.
 
-## Repository layout
-
-```
-firmware/aqi_sensor_module/   Arduino sketch for the ESP8266
-host/                         Python app: model training, prediction, logging
-docs/                         Project report and figures
-```
-
-## Team
-
-Rachit Saini, Yashpreet Negi, Aashray Sharma, Mana Gupta, Shruti Puri, under Dr. Dharmendra Kumar.
