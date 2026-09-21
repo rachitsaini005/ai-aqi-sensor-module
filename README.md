@@ -49,7 +49,7 @@ An **ESP8266 NodeMCU** reads the sensors, drives local LED/buzzer alerts (no Wi-
 
 The whole module runs from a single 5 V USB supply; the NodeMCU regulates 3.3 V on board.
 
-The wiring diagram is in [`docs/images/wiring-diagram.png`](images/wiring-diagram.png). Note that it was drawn with a DHT22 and an ESP32-style board symbol; the built prototype uses a NodeMCU ESP8266 and a DHT11.
+The wiring diagram is in [`images/wiring-diagram.png`](images/wiring-diagram.png). Note that it was drawn with a DHT22 and an ESP32-style board symbol; the built prototype uses a NodeMCU ESP8266 and a DHT11.
 
 ## Getting started
 
