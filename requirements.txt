@@ -1,0 +1,3 @@
+pandas
+pyserial
+scikit-learn
