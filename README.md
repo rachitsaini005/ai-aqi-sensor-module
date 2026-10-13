@@ -2,7 +2,7 @@
 
 Cost-effective environmental monitoring using **virtual sensing** on an ESP8266, with a Random Forest model for AQI prediction.
 
-Project for *Embedded System & IoT (UEE511)*, Department of Electrical & Instrumentation Engineering, Thapar Institute of Engineering & Technology, Patiala (July–December 2025).
+Project for *Embedded System Design & IoT (UEE511)*, Department of Electrical & Instrumentation Engineering, Thapar Institute of Engineering & Technology, Patiala (July–December 2025).
 
 The full project report is in [`AQI_Sensor_Module_Project_Report.pdf`](AQI_Sensor_Module_Project_Report.pdf).
 
